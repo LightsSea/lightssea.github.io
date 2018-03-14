@@ -27,7 +27,7 @@
     <!--Title-->
 
 
-<title>Archives: 2018 | LightsSea-关注网络安全-互联网安全-网络安全-渗透测试-安全资讯-漏洞-黑客工具</title>
+<title>工具 | whatweb初级篇 | LightsSea-关注网络安全-互联网安全-网络安全-渗透测试-安全资讯-漏洞-黑客工具</title>
 
 
     <link rel="alternate" href="/atom.xml" title="LightsSea-关注网络安全-互联网安全-网络安全-渗透测试-安全资讯-漏洞-黑客工具" type="application/atom+xml">
@@ -121,33 +121,136 @@
     <section class="content-wrap">
         <div class="container">
             <div class="row">
-                <main class="col-md-8 main-content ">
-                    <div id="main">
-  <div id="post-list">
-    <ul class="archives-post-list">
-    	<h1 class="info">2018年 月</h1>
-        
-          <li class="post-items" _href="/2018/03/14/工具-whatweb初级篇/">
-            <h3 class="post-item-title">
-            	<a href="/2018/03/14/工具-whatweb初级篇/"> 工具 | whatweb初级篇 </a>
-            </h3>  
-          </li>
-        
-          <li class="post-items" _href="/2018/03/13/hello-hexo/">
-            <h3 class="post-item-title">
-            	<a href="/2018/03/13/hello-hexo/"> hello hexo </a>
-            </h3>  
-          </li>
-        
-          <li class="post-items" _href="/2018/03/12/hello-world/">
-            <h3 class="post-item-title">
-            	<a href="/2018/03/12/hello-world/"> Hello World </a>
-            </h3>  
-          </li>
-        
-    </ul>
-  </div>
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="工具 | whatweb初级篇">
+            
+	            工具 | whatweb初级篇
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/ ">
+             
+        </a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                 
+            
+        </span>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">2018/03/14</span>
+    </span>
 </div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <p>Whatweb是一个基于Ruby语言的开源网站指纹识别软件，正如它的名字一样，whatweb能够识别各种关于网站的详细信息。<br>0×00简介：</p>
+<p>Whatweb是一个基于Ruby语言的开源网站指纹识别软件，正如它的名字一样，whatweb能够识别各种关于网站的详细信息包括：CMS类型、博客平台、中间件、web框架模块、网站服务器、脚本类型、JavaScript库、IP、cookie等等。</p>
+<p>0×01安装：</p>
+<p>Whatweb 是基于 ruby 语言开发，因此可以安装在具备 ruby 环境的系统中，目前支持 Windows/Mac OSX/Linux。</p>
+<p>debian/ubuntu系统下:</p>
+<p>apt-get install whatweb //可自动解决依赖问题。</p>
+<p>00.png</p>
+<p>redhat/centos 系统下:</p>
+<p>yum update</p>
+<p>yum install ruby ruby-devel rubygems</p>
+<p>wget <a href="http://www.morningstarsecurity.com/downloads/whatweb-0.4.7.tar.gz" target="_blank" rel="noopener">http://www.morningstarsecurity.com/downloads/whatweb-0.4.7.tar.gz</a></p>
+<p>tar xzvf whatweb-0.4.7.tar.gz</p>
+<p>cd whatweb-0.4.7</p>
+<p>./whatweb url</p>
+<p>01.png</p>
+<p>为了降低大家的使用难度，这里我们可以直接使用kalilinux下已经集成好的whatweb，还是蛮高大上的。</p>
+<p>02.png</p>
+<p>0×02 whatweb的基础使用：</p>
+<p>命令语法：Usage: whatweb [options] <urls></urls></p>
+<p>解释说明：</p>
+<p>Whatweb为固定语法，表示使用whatweb这个工具</p>
+<p>[options] 与大多数命令行的命令使用格式一样[ ]（中括号）表示可选参数，表示这个参数可用可不用，一般看具体场景选合适的参数。</p>
+<p><urls> 为我们要探测的目标，可以是IP地址，域名，url地址，nmap格式的地址范围甚至是文件名。</urls></p>
+<p>查看whatweb版本：root@kali :~# whatweb –version</p>
+<p>root.png</p>
+<p>英语阅读能力比较好的同学可以通过whatweb–help查看简单的命令手册</p>
+<p>root@kali :~# whatweb –help</p>
+<p>yong.png</p>
+<p>初步使用：</p>
+<p>a.    对单个目标进行简单探测whatweb+目标</p>
+<p>root@kali :~# whatweb 192.168.159.167</p>
+<p>167.png</p>
+<p>注：没有加参数的话，默认将探测的结果已逗号的形式分隔开来显示</p>
+<p>b.    从外部文件导入目标数据进行批量探测：</p>
+<p>root@kali :~# whatweb –input-file=/root/桌面/123.txt</p>
+<p>waibu.png</p>
+<p>简单输入-i+空格+目标的命令格式跟上图的—input-file命令的效果是一样的，那么在熟练使用whatweb之后直接用-i导入文件会比较方便。</p>
+<p>root@kali :~# whatweb -i ‘/root/桌面/123.txt’</p>
+<p>123.png</p>
+<p>批量扫描，灵活注释：</p>
+<p>saomiao.png</p>
+<p>c.    根据特定的格式将探测的结果导出</p>
+<p>能批量的导入探测当然也可批量的将结果导出，whatweb支持多种日志的保存格式，可以将探测的结果导入文件中保存，方便查看和搜索。</p>
+<p>root@kali :~# whatweb 192.168.159.1 –log-xml=result.xml</p>
+<p>678.png</p>
+<p>其他格式导出文件同理：</p>
+<p>–log-brief=FILE           简要的记录，每个网站只记录一条返回信息</p>
+<p>  –log-verbose=FILE        详细输出</p>
+<p>  –log-xml=FILE            返回xml格式的日志</p>
+<p>  –log-json=FILE            以json格式记录日志</p>
+<p>  –log-json-verbose=FILE    记录详细的json日志</p>
+<p>  –log-magictree=FILE       xml的树形结构</p>
+<p>注：1.    Json 格式需要安装 json 依赖 sudo gem install json</p>
+<ol>
+<li>Mongo 格式需要安装 mongo 依赖 sudo gem install mongo</li>
+</ol>
+
+    </div>
+
+    <div class="post-footer">   
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">LightsSea</a>
+            
+        </div>
+        <div>
+            
+        </div>  
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+    
+        <a href="/2018/03/13/hello-hexo/" class="next-post btn btn-default">下一篇<i class="fa fa-angle-right fa-fw"></i></a>
+    
+</div>
+
+
+    <div id="comments">
+        
+	<!--PC和WAP自适应版-->
+<div id="SOHUCS"></div>
+<script type="text/javascript">
+	(function(){var appid='cyt8KmUC1';var conf='prod_855a68d3b3d91855360a6215672a505a';var width=window.innerWidth||document.documentElement.clientWidth;if(width<960){window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id='+appid+'&conf='+conf+'"><\/script>');}else{var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}
+	c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})});}})();
+</script>	
+
+    </div>
 
 
 
